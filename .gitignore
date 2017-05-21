@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 *.pyo
 settings_local.py
+db.sqlite3
 
 env/
 media/
