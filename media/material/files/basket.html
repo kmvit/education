@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Большие цветы</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="FLOWERS" name="author">
+    <meta content="FLOWERS" name="description">
+    <meta content="FLOWERS" name="keywords">
+
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900,300italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements 4rand media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" media="screen" type="text/css" title="Style" href="css/main.css"/>
+
+
+
+    <script type="text/javascript" src="js/drop.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            function hideallDropdowns() {
+                $(".dropped .drop-menu-main-sub").hide();
+                $(".dropped").removeClass('dropped');
+                $(".dropped .drop-menu-main-sub .title").unbind("click");
+            }
+
+            function showDropdown(el) {
+                var el_li = $(el).parent().addClass('dropped');
+                el_li
+                        .find('.title')
+                        .click(function () {
+                            hideallDropdowns();
+                        })
+                        .html($(el).html());
+
+                el_li.find('.drop-menu-main-sub').show();
+            }
+
+            $(".drop-down").click(function(){
+                showDropdown(this);
+            });
+
+            $(document).mouseup(function () {
+                hideallDropdowns();
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        jQuery('ul.nav > li').hover(function() {
+            jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn();
+        }, function() {
+            jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut();
+        })
+    </script>
+
+
+
+
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/slides.js"></script>
+    <script>
+        $(function(){
+            $("#slides").slides({
+                responsive: true
+            });
+        });
+    </script>
+    <script src="js/jquery.slider-rm.js"></script>
+
+    <script>window.jQuery || document.write("<script src='_/js/jquery.min.js'>\x3C/script>")</script>
+
+
+
+    <script src="js/readmore.js"></script>
+
+
+</head>
+<body>
+
+<header>
+    <div class="top_header">
+        <div class="container">
+            <div class="row">
+                <nav class="menu_table col-lg-6 col-md-6 hidden-sm hidden-xs">
+                    <ul class="menu_table_items">
+                        <li class="item ">
+                            <a class="nav_link nav_link_first" href="">Оплата и доставка</a>
+                        </li>
+                        <li class="item ">
+                            <a class="nav_link" href="">Отзывы</a>
+                        </li>
+                        <li class="item ">
+                            <a class="nav_link" href="">Как сделать заказ</a>
+                        </li>
+                        <li class="item ">
+                            <a class="nav_link" href="">О нас</a>
+                        </li>
+                        <li class="item ">
+                            <a class="nav_link nav_link_last" href="">Контакты</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!---------menu-top-mobile------------------->
+
+                <div class="top_menu hidden-md hidden-lg ">
+                    <div class="demo">
+                        <ul class="drop-menu-main">
+                            <li class="">
+                                <span class="drop-down">
+                                 <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+
+                                </span>
+                                <div class="drop-menu-main-sub">
+                                    <ul>
+                                        <li class="sub">
+                                            <a href="#">Оплата и доставка</a></li>
+                                        <li class="sub">
+                                            <a href="#">Отзывы</a></li>
+                                        <li class="sub">
+                                            <a href="#">Как сделать заказ</a></li>
+                                        <li class="sub">
+                                            <a href="#">О нас</a></li>
+                                        <li class="sub">
+                                            <a href="#">Контакты</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="people"></div>
+                    </div>
+
+
+                    <div class="text_language">
+                        <a class="language_main" href=""></a>
+                        <a class="language_en" href=""></a>
+                    </div>
+
+
+                    <div class="basket_mobile">
+                        <a class="personal_office" href=""></a>
+                        <a class="basket_mobile_col" href=""></a>
+                        <span>2</span>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+                <!---------menu-top-mobile------------------->
+
+
+                <div class="inlet col-lg-6 col-md-6 hidden-sm hidden-xs">
+
+                    <a class="personal_account" href=""><span>Личный кабинет</span></a>
+                    <a class="register" href=""><span>Статус заказа</span></a>
+
+                    <div class="text_language">
+                        <a class="language_main" href="">Ru</a>
+                        <a href="">En</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!---------->
+    <div class="header_flower">
+        <div class="container">
+            <div class="row">
+                <div class="phone col-lg-3 col-md-3 hidden-sm hidden-xs">
+                    <div class="digit"><p>8-800 999-99-99</p>
+                        <p class="free">Звонок бесплатный</p></div>
+
+                    <div class="work_time"><p>Время работы<span>24/7</span></p></div>
+                </div>
+
+                <div class="col-lg-6 col-md-5 col-sm-12">
+                    <div class="logo"><p>Большие цветы</p><span>служба доставки цветов</span></div>
+                </div>
+
+                <div class="basket_main col-lg-3 col-md-4 hidden-sm hidden-xs">
+                    <a class="basket-button" href="">
+                        <p class="basket-text">корзина</p>
+                        <p>2 товара на<span>1200р.</span></p>
+                    </a>
+                </div>
+
+
+
+                <div class="choice_services col-lg-9 col-lg-offset-3 col-md-10 col-md-offset-2 col-sm-12 col-xs-12">
+                    <div class="delivery col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                        <p>Ежедневная доставка цветов</p>
+                    </div>
+                    <div class="work col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                        <p>Работаем по всей России</p>
+                    </div>
+                    <div class="foto col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                        <p>Фотография получателя</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="section_menu ">
+
+
+
+        <!-------catalog--------------------------->
+        <div class="menu_table_mobile main_page_flowers main_page_flowers_mobile hidden-lg hidden-md">
+
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+
+                <div class="navbar-header">
+                    <button type="button" class="icon-bar-click navbar-toggle collapsed" data-toggle="collapse">
+
+
+                    </button>
+                    <a class="navbar-brand visible-xs visible-sm" href="">каталог</a>
+                </div>
+                <div class="collapse" id="bs-example-navbar-collapse-1" >
+
+                    <ul class="nav navbar-nav menu_table_drop">
+                        <li class="item bouquets">
+                            <a class="nav_link arrow_top dropdown-toggle" href="" data-toggle="dropdown">Букеты<span class="caret_menu"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">1</a></li>
+                                <li><a href="">2</a></li>
+                                <li><a href="">3</a></li>
+                            </ul>
+                        </li>
+                        <li class="item monovalency dropdown">
+                            <a class="nav_link arrow_top dropdown-toggle" href="" data-toggle="dropdown">Монобукеты<span class="caret_menu"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">1</a></li>
+                                <li><a href="">2</a></li>
+                                <li><a href="">3</a></li>
+                            </ul>
+                        </li>
+                        <li class="item baskets_flowers dropdown">
+                            <a class="nav_link arrow_top dropdown-toggle" href="" data-toggle="dropdown">Корзинки<br> с цветами<span class="caret_menu"></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">1</a></li>
+                                <li><a href="">2</a></li>
+                                <li><a href="">3</a></li>
+                            </ul>
+                        </li>
+                        <li class="item present_item dropdown">
+                            <a class="nav_link arrow_top dropdown-toggle" href="" data-toggle="dropdown">Подарки<span class="caret_menu"></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">1</a></li>
+                                <li><a href="">2</a></li>
+                                <li><a href="">3</a></li>
+                            </ul>
+                        </li>
+                        <li class="item composition dropdown">
+                            <a class="nav_link arrow_top dropdown-toggle" href="" data-toggle="dropdown">Композиции<br> из цветов<span class="caret_menu"></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">1</a></li>
+                                <li><a href="">2</a></li>
+                                <li><a href="">3</a></li>
+                            </ul>
+                        </li>
+                        <li class="item price dropdown">
+                            <a class="nav_link arrow_top dropdown-toggle" href="" data-toggle="dropdown">Цена<span class="caret_menu"></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">1</a></li>
+                                <li><a href="">2</a></li>
+                                <li><a href="">3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+        <!-------catalog--------------------------->
+
+
+
+
+        <div class="container">
+            <div class="row">
+                <nav class="main_page_flowers hidden-sm hidden-xs">
+                    <ul class="menu_table_drop  ul_menu">
+                        <li class="item bouquets">
+                            <a class="nav_link arrow_top dropdown-toggle" href="" data-toggle="dropdown">Букеты</a>
+                            <ul class="dropdown-menu">
+                                <div class="container flower_menu_page">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 name_flower name_flower_menu">
+                                        <ul class="col-lg-6 col-md-6 col-sm-6">
+                                            <li><a href="">С розами</a></li>
+                                            <li><a href="">С орхидеями</a></li>
+                                            <li><a href="">С герберами</a></li>
+                                            <li><a href="">С хризантемами</a></li>
+                                            <li><a href="">С ирисами</a></li>
+                                            <li><a href="">С ромашками</a></li>
+                                            <li><a href="">С пионами</a></li>
+                                        </ul>
+
+                                        <ul class="col-lg-6 col-md-6 col-sm-6">
+                                            <li><a href="">С розами</a></li>
+                                            <li><a href="">С орхидеями</a></li>
+                                            <li><a href="">С герберами</a></li>
+                                            <li><a href="">С хризантемами</a></li>
+                                            <li><a href="">С ирисами</a></li>
+                                            <li><a href="">С ромашками</a></li>
+                                            <li><a href="">С пионами</a></li>
+
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 name_flower_menu">
+                                        <p class="light_flower">Свежие цветы <br>поштучно</p>
+
+                                        <a class="btn-default">Здесь</a>
+
+                                    </div>
+                                </div>
+
+
+                            </ul>
+                        </li>
+                        <li class="item monovalency">
+                            <a class="nav_link arrow_top dropdown-toggle" href="" data-toggle="dropdown">Монобукеты</a>
+                            <ul class="dropdown-menu">
+                                <div class="container flower_menu_page">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 name_flower name_flower_menu">
+                                        <ul class="col-lg-6 col-md-6 col-sm-6">
+                                            <li><a href="">С розами</a></li>
+                                            <li><a href="">С орхидеями</a></li>
+                                            <li><a href="">С герберами</a></li>
+                                            <li><a href="">С хризантемами</a></li>
+                                            <li><a href="">С ирисами</a></li>
+                                            <li><a href="">С ромашками</a></li>
+                                            <li><a href="">С пионами</a></li>
+                                        </ul>
+
+                                        <ul class="col-lg-6 col-md-6 col-sm-6">
+                                            <li><a href="">С розами</a></li>
+                                            <li><a href="">С орхидеями</a></li>
+                                            <li><a href="">С герберами</a></li>
+                                            <li><a href="">С хризантемами</a></li>
+                                            <li><a href="">С ирисами</a></li>
+                                            <li><a href="">С ромашками</a></li>
+                                            <li><a href="">С пионами</a></li>
+
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 name_flower_menu">
+                                        <p class="light_flower">Свежие цветы <br>поштучно</p>
+
+                                        <a class="btn-default">Здесь</a>
+
+                                    </div>
+                                </div>
+
+
+                            </ul>
+                        </li>
+                        <li class="item baskets_flowers">
+                            <a class="nav_link arrow_top dropdown-toggle" href="" data-toggle="dropdown">Корзинки<br> с цветами</a>
+                            <ul class="dropdown-menu">
+                                <div class="container flower_menu_page">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 name_flower name_flower_menu">
+                                        <ul class="col-lg-6 col-md-6 col-sm-6">
+                                            <li><a href="">С розами</a></li>
+                                            <li><a href="">С орхидеями</a></li>
+                                            <li><a href="">С герберами</a></li>
+                                            <li><a href="">С хризантемами</a></li>
+                                            <li><a href="">С ирисами</a></li>
+                                            <li><a href="">С ромашками</a></li>
+                                            <li><a href="">С пионами</a></li>
+                                        </ul>
+
+                                        <ul class="col-lg-6 col-md-6 col-sm-6">
+                                            <li><a href="">С розами</a></li>
+                                            <li><a href="">С орхидеями</a></li>
+                                            <li><a href="">С герберами</a></li>
+                                            <li><a href="">С хризантемами</a></li>
+                                            <li><a href="">С ирисами</a></li>
+                                            <li><a href="">С ромашками</a></li>
+                                            <li><a href="">С пионами</a></li>
+
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 name_flower_menu">
+                                        <p class="light_flower">Свежие цветы <br>поштучно</p>
+
+                                        <a class="btn-default">Здесь</a>
+
+                                    </div>
+                                </div>
+
+
+                            </ul>
+                        </li>
+                        <li class="item present_item">
+                            <a class="nav_link arrow_top dropdown-toggle" href="" data-toggle="dropdown">Подарки</a>
+                            <ul class="dropdown-menu">
+                                <div class="container flower_menu_page">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 name_flower name_flower_menu">
+                                        <ul class="col-lg-6 col-md-6 col-sm-6">
+                                            <li><a href="">Воздушные шарики</a></li>
+                                            <li><a href="">Мягкие игрушки</a></li>
+                                            <li><a href="">Фруктовые корзины</a></li>
+                                            <li><a href="">Сладости и конфеты</a></li>
+                                            <li><a href="">Сувениры к цветам</a></li>
+                                            <li><a href="">Торты</a></li>
+
+                                        </ul>
+
+                                        <ul class="col-lg-6 col-md-6 col-sm-6">
+                                            <li><a href="">Цветочные композиции</a></li>
+                                            <li><a href="">Цветочные корзины</a></li>
+                                            <li><a href="">Цветы в шляпных коробках</a></li>
+                                            <li><a href="">Сердца из цветов</a></li>
+
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 name_flower_menu">
+                                        <p class="light_flower">Свежие цветы <br>поштучно</p>
+
+                                        <a class="btn-default">Здесь</a>
+
+                                    </div>
+                                </div>
+
+                                v
+                            </ul>
+                        </li>
+                        <li class="item composition">
+                            <a class="nav_link arrow_top dropdown-toggle" href="" data-toggle="dropdown">Композиции<br> из цветов</a>
+                            <ul class="dropdown-menu">
+                                <div class="container flower_menu_page">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 name_flower name_flower_menu">
+                                        <ul class="col-lg-6 col-md-6 col-sm-6">
+                                            <li><a href="">С розами</a></li>
+                                            <li><a href="">С орхидеями</a></li>
+                                            <li><a href="">С герберами</a></li>
+                                            <li><a href="">С хризантемами</a></li>
+                                            <li><a href="">С ирисами</a></li>
+                                            <li><a href="">С ромашками</a></li>
+                                            <li><a href="">С пионами</a></li>
+                                        </ul>
+
+                                        <ul class="col-lg-6 col-md-6 col-sm-6">
+                                            <li><a href="">С розами</a></li>
+                                            <li><a href="">С орхидеями</a></li>
+                                            <li><a href="">С герберами</a></li>
+                                            <li><a href="">С хризантемами</a></li>
+                                            <li><a href="">С ирисами</a></li>
+                                            <li><a href="">С ромашками</a></li>
+                                            <li><a href="">С пионами</a></li>
+
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 name_flower_menu">
+                                        <p class="light_flower">Свежие цветы <br>поштучно</p>
+
+                                        <a class="btn-default">Здесь</a>
+
+                                    </div>
+                                </div>
+
+
+                            </ul>
+                        </li>
+                        <li class="item price">
+                            <a class="nav_link arrow_top dropdown-toggle" href="" data-toggle="dropdown">Цена</a>
+                            <ul class="dropdown-menu">
+                                <div class="container flower_menu_page">
+                                    <div class="col-lg-7 col-md-7 col-sm-7 name_flower name_flower_menu">
+                                        <ul class="col-lg-3 col-md-4 col-sm-5">
+                                            <li><a href="">до 1000 р.</a></li>
+                                            <li><a href="">от 1000 до 2000 р.</a></li>
+                                            <li><a href="">от 2000 до 3000 р.</a></li>
+                                            <li><a href="">от 3000 до 4000 р.</a></li>
+                                            <li><a href="">от 4000 до 5000 р.</a></li>
+                                            <li><a href="">от 5000 р.</a></li>
+
+                                        </ul>
+
+                                        <ul class="col-lg-9 col-md-8 col-sm-7">
+                                            <img src="img/flower8.png" alt="">
+
+                                            <div class="page_price_bouk">
+                                                <p>Букет 21 красная роза</p>
+                                                <span>1290 р.</span>
+                                                <a class="basket_mobile_col" href=""></a>
+                                            </div>
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-5 name_flower_menu">
+                                        <img src="img/flower8.png" alt="">
+
+                                        <div class="page_price_bouk">
+                                            <p>Букет 21 красная роза</p>
+                                            <span>1290 р.</span>
+                                            <a class="basket_mobile_col" href=""></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</header>
+
+<!---header-end-------->
+
+
+<section class="catalog categories ">
+    <div class="container">
+        <div class="row  row-none">
+
+            <ul class="menu_page">
+                <li class="menu_page_main">
+                    <a href="/">Главная</a>
+                </li>
+                <li class="menu_page_main menu_page_main_carret">
+                    <a href="/"></a>
+                </li>
+
+                <li class="menu_page_main">Корзина</li>
+            </ul>
+
+            <div class="place_order basket">
+                <h1>Корзина</h1>
+
+<!----------------------------------------->
+                <table class="table install__table_1">
+                    <tbody>
+                    <tr>
+                        <th>название</th>
+                        <th>количество</th>
+                        <th>цена за шт</th>
+                        <th>цена</th>
+                    </tr>
+
+                    <tr class="table_true">
+                        <td class="table_td_basket col-lg-4 col-md-4 col-sm-4 col-xs-1">
+                            <a href="" class="basket_option_1">
+                                <img src="img/basket_page.png" alt="">
+                                <div class="text_table">
+                                    <h3>весеннее настроение</h3>
+
+                                </div>
+                            </a>
+                        </td>
+
+                        <td class="table_td_basket col-lg-2 col-md-2 col-sm-2 col-xs-1">
+                            <div class="basket_option_2">
+                                <div class="count">
+                                    <span class="minus">-</span>
+                                    <input class="cou" type="text" name="amount" value="1"
+                                                     onblur="if(this.value==''){this.value='1';}"
+                                                     onfocus="if(this.value=='1'){this.value='';}"/>
+                                    <span class="plus">+</span>
+
+
+
+                                </div>
+                            </div>
+                        </td>
+
+
+                        <script>
+                            $(function() {
+
+                                $(".features li:even").addClass('even');
+                                $(".features TR:even").addClass('even');
+
+
+                                $("a.zoom").fancybox({ 'hideOnContentClick' : true });
+                            });
+
+                            // Плюс и минус
+                            $('.minus').click(function () {
+                                var $input = $(this).parent().find('input');
+                                var count = parseInt($input.val()) - 1;
+                                count = count < 1 ? 1 : count;
+                                $input.val(count);
+                                $input.change();
+                                return false;
+                            });
+                            $('.plus').click(function () {
+                                var $input = $(this).parent().find('input');
+                                $input.val(parseInt($input.val()) + 1);
+                                $input.change();
+                                return false;
+                            });
+                        </script>
+
+
+
+                        <td class="table_td_basket col-lg-2 col-md-2 col-sm-2 col-xs-1">
+                            <div class="basket_option_3">
+
+                                <p class="price_p">
+                                    1 200
+                                    <span class="rouble">&#8399;</span>
+                                </p>
+                            </div>
+                        </td>
+                        <td class="table_td_basket bask col-lg-2 col-md-2 col-sm-2 col-xs-1">
+                            <div class="basket_option_3">
+
+                                <p class="price_p">
+                                    1 200
+                                    <span class="rouble">&#8399;</span>
+                                </p>
+                            </div>
+                        </td>
+                        <td class="table_td_basket col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                            <a class="cross_red" href=""></a>
+                        </td>
+                    </tr>
+
+                    <tr class="table_true table_true_down">
+                        <td class="table_td_basket col-lg-4 col-md-4 col-sm-4 col-xs-1">
+                            <a href="" class="basket_option_1">
+                                <img src="img/basket_page.png" alt="">
+                                <a class="text_table">
+                                    <h3>весеннее настроение</h3>
+
+                                </a>
+                            </a>
+                        </td>
+
+                        <td class="table_td_basket col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="basket_option_2">
+                                <div class="count">
+                                    <span class="minus">-</span>
+                                    <input class="cou" type="text" name="amount" value="1"
+                                           onblur="if(this.value==''){this.value='1';}"
+                                           onfocus="if(this.value=='1'){this.value='';}"/>
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </td>
+
+                        <script>
+                            $(function() {
+
+                                $(".features li:even").addClass('even');
+                                $(".features TR:even").addClass('even');
+
+
+                                $("a.zoom").fancybox({ 'hideOnContentClick' : true });
+                            });
+
+                            // Плюс и минус
+                            $('.minus').click(function () {
+                                var $input = $(this).parent().find('input');
+                                var count = parseInt($input.val()) - 1;
+                                count = count < 1 ? 1 : count;
+                                $input.val(count);
+                                $input.change();
+                                return false;
+                            });
+                            $('.plus').click(function () {
+                                var $input = $(this).parent().find('input');
+                                $input.val(parseInt($input.val()) + 1);
+                                $input.change();
+                                return false;
+                            });
+                        </script>
+
+
+                        <td class="table_td_basket col-lg-2 col-md-2 col-sm-2 col-xs-1">
+                            <div class="basket_option_3">
+
+                                <p class="price_p">
+                                    1 200
+                                    <span class="rouble">&#8399;</span>
+                                </p>
+                            </div>
+                        </td>
+                        <td class="table_td_basket bask col-lg-2 col-md-2 col-sm-2 col-xs-1">
+                            <div class="basket_option_3">
+
+                                <p class="price_p">
+                                    1 200
+                                    <span class="rouble">&#8399;</span>
+                                </p>
+                            </div>
+                        </td>
+                        <td class="table_td_basket col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                            <a class="cross_red" href=""></a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+                <!----------------------------------------->
+<div class="none_lg_basket">
+
+                <div class="basket_mini_page">
+            <div class="page_basket">
+                <a href="" class="basket_option_1">
+                    <img src="img/basket_page.png" alt="">
+
+                </a>
+
+
+            </div>
+
+                    <div class="page_basket">
+                        <p>название</p>
+                        <a class="text_table">
+                            <h3>весеннее настроение</h3>
+                        </a>
+
+                        <a class="cross_red" href=""></a>
+
+                        <p>количество</p>
+                        <div class="basket_option_2">
+                            <div class="count">
+                                <span class="minus">-</span>
+                                <input class="cou" type="text" name="amount" value="1"
+                                       onblur="if(this.value==''){this.value='1';}"
+                                       onfocus="if(this.value=='1'){this.value='';}"/>
+                                <span class="plus">+</span>
+                            </div>
+                        </div>
+
+                        <div class="price_basket">
+                        <div class="basket_price">
+                        <p>скидка</p>
+                            <p class="price_p">
+                                200
+                                <span class="rouble">&#8399;</span>
+                            </p>
+                        </div>
+                        <div class="basket_price">
+                        <p>цена</p>
+
+
+                                <p class="price_p">
+                                    1 200
+                                    <span class="rouble">&#8399;</span>
+                                </p>
+
+
+                    </div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+                </div>
+
+    <div class="basket_mini_page">
+        <div class="page_basket">
+            <a href="" class="basket_option_1">
+                <img src="img/basket_page.png" alt="">
+
+            </a>
+
+
+        </div>
+
+        <div class="page_basket">
+            <p>название</p>
+            <a class="text_table">
+                <h3>весеннее настроение</h3>
+            </a>
+
+            <a class="cross_red" href=""></a>
+
+            <p>количество</p>
+            <div class="basket_option_2">
+                <div class="count">
+                    <span class="minus">-</span>
+                    <input class="cou" type="text" name="amount" value="1"
+                           onblur="if(this.value==''){this.value='1';}"
+                           onfocus="if(this.value=='1'){this.value='';}"/>
+                    <span class="plus">+</span>
+                </div>
+            </div>
+
+            <div class="price_basket">
+                <div class="basket_price">
+                    <p>скидка</p>
+                    <p class="price_p">
+                        200
+                        <span class="rouble">&#8399;</span>
+                    </p>
+                </div>
+                <div class="basket_price">
+                    <p>цена</p>
+
+
+                    <p class="price_p">
+                        1 200
+                        <span class="rouble">&#8399;</span>
+                    </p>
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+</div>
+                <script>
+                    $(function() {
+
+                        $(".features li:even").addClass('even');
+                        $(".features TR:even").addClass('even');
+
+
+                        $("a.zoom").fancybox({ 'hideOnContentClick' : true });
+                    });
+
+                    // Плюс и минус
+                    $('.minus').click(function () {
+                        var $input = $(this).parent().find('input');
+                        var count = parseInt($input.val()) - 1;
+                        count = count < 1 ? 1 : count;
+                        $input.val(count);
+                        $input.change();
+                        return false;
+                    });
+                    $('.plus').click(function () {
+                        var $input = $(this).parent().find('input');
+                        $input.val(parseInt($input.val()) + 1);
+                        $input.change();
+                        return false;
+                    });
+                </script>
+
+            </div>
+
+
+           <div class="basket-total-discount">
+        <div class="basket_total">
+            <div class="text_discount">
+                <p>Код скидки:</p>
+            </div>
+            <div class="autocomplete__element">
+                <form method="GET" action="">
+                    <div class="input-group">
+                        <input class="form-control input_search" type="text" required="" value="" placeholder="Скидка" autocomplete="off" name="text" data-autocomplete-input="">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">ок</button>
+                                </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+            <div class="rebate">
+                <p>скидка:<span class="rebate-big-price">300<span class="rouble">&#8399;</span></span></p>
+
+
+            </div>
+
+            <div class="rebate">
+                <p>итого:<span class="rebate-big-price rebate-big">10 200<span class="rouble">&#8399;</span></span></p>
+
+
+            </div>
+           </div>
+
+
+
+        </div>
+    </div>
+
+
+    <div class="place container">
+        <a class="btn-default">оформить заказ</a>
+    </div>
+
+</section>
+
+
+
+<section class="select_gift_wrapper">
+
+    <div class="select_gift">
+    <div class="container">
+        <div class="row">
+
+            <h2>выберите подарок</h2>
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active">
+                    <a href="#gift1" aria-controls="gift1" role="tab" data-toggle="tab">Открытки</a>
+                </li>
+                <li>
+                    <a href="#gift2" aria-controls="gift2" role="tab" data-toggle="tab">Конфеты</a>
+                </li>
+                <li>
+                    <a href="#gift3" aria-controls="gift3" role="tab" data-toggle="tab">Подарочные корзины</a>
+                </li>
+                <li>
+                    <a href="#gift4" aria-controls="gift4" role="tab" data-toggle="tab">Мягкие игрушки</a>
+                </li>
+                <li>
+                    <a href="#gift5" aria-controls="gift5" role="tab" data-toggle="tab">Воздушные шары</a>
+                </li>
+                <li>
+                    <a href="#gift6" aria-controls="gift6" role="tab" data-toggle="tab">Фрукты</a>
+                </li>
+                <li>
+                    <a href="#gift7" aria-controls="gift7" role="tab" data-toggle="tab">Торты</a>
+                </li>
+                <li>
+                    <a href="#gift8" aria-controls="gift8" role="tab" data-toggle="tab">Вазы</a>
+                </li>
+                <li>
+                    <a href="#gift9" aria-controls="gift9" role="tab" data-toggle="tab">Люблю</a>
+                </li>
+                <li>
+                    <a href="#gift10" aria-controls="gift10" role="tab" data-toggle="tab">Новорожденным</a>
+                </li>
+                <li>
+                    <a href="#gift11" aria-controls="gift11" role="tab" data-toggle="tab">Свадьба</a>
+                </li>
+                <li>
+                    <a href="#gift12" aria-controls="gift12" role="tab" data-toggle="tab">Без текста</a>
+                </li>
+                <li>
+                    <a href="#gift13" aria-controls="gift13" role="tab" data-toggle="tab">С днем рождения</a>
+                </li>
+                <li>
+                    <a href="#gift14" aria-controls="gift14" role="tab" data-toggle="tab">Подруге</a>
+                </li>
+                <li>
+                    <a href="#gift15" aria-controls="gift15" role="tab" data-toggle="tab">Папе</a>
+                </li>
+                <li>
+                    <a href="#gift16" aria-controls="gift16" role="tab" data-toggle="tab">Маме</a>
+                </li>
+                </ul>
+
+
+            <div class="tab-content">
+                <div id="gift1" class="tab-pane active" role="tabpanel">
+
+                    <div class="page-tab"><img src="img/gift1.png" alt=""></div>
+                    <div class="page-tab"><img src="img/gift2.png" alt=""></div>
+                    <div class="page-tab"><img src="img/gift3.png" alt=""></div>
+                    <div class="page-tab"><img src="img/gift4.png" alt=""></div>
+    </div>
+
+
+                <div id="gift2" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift1.png" alt=""></div></div>
+                <div id="gift3" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift2.png" alt=""></div></div>
+                <div id="gift4" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift3.png" alt=""></div></div>
+                <div id="gift5" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift4.png" alt=""></div></div>
+                <div id="gift6" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift2.png" alt=""></div></div>
+                <div id="gift7" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift1.png" alt=""></div></div>
+                <div id="gift8" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift4.png" alt=""></div></div>
+                <div id="gift9" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift3.png" alt=""></div></div>
+                <div id="gift10" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift1.png" alt=""></div></div>
+                <div id="gift11" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift2.png" alt=""></div></div>
+                <div id="gift12" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift4.png" alt=""></div></div>
+                <div id="gift13" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift1.png" alt=""></div></div>
+                <div id="gift14" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift3.png" alt=""></div></div>
+                <div id="gift15" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift1.png" alt=""></div></div>
+                <div id="gift16" class="tab-pane" role="tabpanel"> <div class="page-tab"><img src="img/gift1.png" alt=""></div></div>
+
+
+              </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+<!---------footer------------------->
+
+<footer>
+    <div class="payment_methods container">
+        <div class="row">
+            <div class="phone-footer clearfix">
+                <p>8 800 999-99-99</p>
+                <a href="#myModal8" class="btn-primary" data-toggle="modal">Заказать обратный звонок</a>
+
+                <div id="myModal8" class="modal fade modal_coise">
+                    <div class="modal-dialog">
+                        <div class="modal-content row">
+                            <div class="callback place_order clearfix">
+
+
+
+
+                                <button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
+                                <h2>Обратный звонок</h2>
+
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="footer_input col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <p>ваше имя</p>
+                                        <input class="form-control" type="name" placeholder="">
+                                    </div>
+
+                                    <div class="footer_input col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <p>номер телефона</p>
+                                        <input class="form-control" type="phone" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="place">
+                                    <a class="btn-default">позвоните мне</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---------------------->
+            </div>
+
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="left_text col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <p>информация</p>
+
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="">Как сделать заказ?</a>
+                            </li>
+                            <li>
+                                <a href="">Способы оплаты</a>
+                            </li>
+                            <li>
+                                <a href="">Условия доставки</a>
+                            </li>
+                            <li>
+                                <a href="">Отмена заказа</a>
+                            </li>
+                            <li>
+                                <a href="">Вопросы-ответы</a>
+                            </li>
+                            <li>
+                                <a href="">Публичная оферта</a>
+                            </li>
+                            <li>
+                                <a href="">Обратная связь</a>
+                            </li>
+                            <li class="last-left-text">
+                                <a href="">Карта сайта</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <p>личный кабинет</p>
+
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="">Вход</a>
+                            </li>
+                            <li>
+                                <a href="">Регистрация</a>
+                            </li>
+                            <li>
+                                <a href="">История заказов</a>
+                            </li>
+                            <li>
+                                <a href="">Адресная книга</a>
+                            </li>
+                            <li>
+                                <a href="">Статус заказа</a>
+                            </li>
+                            <li>
+                                <a href="">Политика конфиденциальности</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+
+                </div>
+                <div class="left_text col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <p>о компании</p>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="">О нас</a>
+                            </li>
+                            <li>
+                                <a href="">Контакты</a>
+                            </li>
+                            <li>
+                                <a href="">Благодарности</a>
+                            </li>
+                            <li>
+                                <a href="">Сотрудничество</a>
+                            </li>
+                            <li class="last-left-text">
+                                <a href="">Фотографии получателей</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                    <p>какой повод?</p>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="">Для любимой</a>
+                            </li>
+                            <li>
+                                <a href="">Для мамы</a>
+                            </li>
+                            <li>
+                                <a href="">Для бабушки</a>
+                            </li>
+                            <li>
+                                <a href="">Сказать «прости»</a>
+                            </li>
+                            <li>
+                                <a href="">Признаться в любви</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="left_text right-st col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <p>мы в инстаграм</p>
+                <img src="img/instagram.png" alt="">
+
+            </div>
+            <div class="left_text right-st col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <p>мы вконтакте</p>
+                <img src="img/vk.png" alt="">
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <div class="footer_down">
+        <div class="container">
+            <div class="row">
+
+                <div class="payment">
+                    <h5>способы оплаты:</h5>
+
+                    <div class="block_page hidden-xs">
+                        <a class="mastercard" href=""></a>
+                        <a class="mastercard2" href=""></a>
+                        <a class="visa" href=""></a>
+                        <a class="yandex" href=""></a>
+                        <a class="web" href=""></a>
+
+                        <a class="paypal" href=""></a>
+                        <a class="qiwi" href=""></a>
+                        <a class="webmoney" href=""></a>
+                        <a class="phone-foot" href=""></a>
+                    </div>
+
+                    <div class="block_page_mini hidden-md hidden-lg hidden-sm">
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <p>Большие цветы, 2016. <span>Интернет-магазин доставки цветов и букетов в Томске.</span></p>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</footer>
+
+
+</body>
+</html>
+
