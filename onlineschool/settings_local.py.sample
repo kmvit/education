@@ -1,0 +1,21 @@
+from onlineschool import settings
+
+MIDDLEWARE_CLASSES += (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+)
+
+INSTALLED_APPS += (
+    'debug_toolbar',
+    'django_extensions',
+)
+
+INTERNAL_IPS = (
+    '127.0.0.1',
+)
+
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = os.path.join(PROJECT_PATH, 'email-local-spool')

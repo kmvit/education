@@ -1,1 +1,11 @@
+__pycache__/
 *.pyc
+*.pyo
+settings_local.py
+
+env/
+media/
+static/
+
+email-local-spool/
+*.geany

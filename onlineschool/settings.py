@@ -85,12 +85,8 @@ WSGI_APPLICATION = 'onlineschool.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'school2',
-	'USER': 'justscoundrel',
-	'PASSWORD': 'Vhcrdoft123',
-	'HOST': 'localhost',
-	'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -135,3 +131,9 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+
+
+try:
+    from .settings_local import *
+except ImportError:
+    raise Exception("Please copy settings_local.py to settings_local.py and modify it accordinly to your installation")

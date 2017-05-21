@@ -1,0 +1,10 @@
+django>=1.10
+pillow>=4.1
+pypdf2
+django-allauth
+gunicorn
+psycopg2
+pytz
+
+django-debug-toolbar
+django-extensions
