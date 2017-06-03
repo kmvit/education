@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load i18n%}
+{% block podbor %}
+{% endblock %}
+{% load quiz_tags %}
+
+{% block title %} {{ quiz.title }} {% endblock %}
+{% block description %} {{ quiz.title }} - {{ quiz.description }} {% endblock %}
+
+{% block content %}
+<section class="news posr">
+		<div class="container">
+			<h1 class="news__h1">{{ quiz.title }}</h1>
+			<div class="line news__line"></div>
+			<div class="row">
+				<div class="col-md-4 border">
+					<h2 class="text-center random_mats__h2">Случайные материалы</h2>
+					{%for item in material_list%}
+					<aside class="random_mats">
+						<h4 class="text-center"><a href="{%url 'material:material_detail' pk=item.pk%}" class="">{{item.title}}</a></h4>
+						<p class="text-center"><a href="{%url 'material:material_detail' pk=item.pk%}"><img src="{{item.img.url}}" alt="" class="random_mats__img"></a></p>
+					</aside>
+					{%endfor%}
+				</div>
+				<div class="col-md-8">
+					<div class="test_main">
+{% if previous.answers %}
+
+  <p class="muted"><small>{% trans "The previous question" %}:</small></p>
+  <p>{{ previous.previous_question }}</p>
+
+  {% if previous.previous_outcome %}
+	<div class="alert alert-success">
+  {% else %}
+	<div class="alert alert-warning">
+  {% endif %}
+  	  <p><small>
+		{% trans "Your answer was" %} </small>
+		<strong>
+		  {{ previous.previous_outcome|yesno:"correct,incorrect" }}
+		</strong>
+	  </p>
+
+	</div>
+
+	{% include 'correct_answer.html' %}
+
+	<p><strong>{% trans "Explanation" %}:</strong></p>
+	<div class="well " style="background-color: #fcf8e3;">
+	  <p>{{ previous.previous_question.explanation }}</p>
+	</div>
+
+	<hr>
+
+{% endif %}
+
+<br />
+
+{% if question %}
+
+{% if progress %}
+<div style="float: right;">
+{% trans "Question" %} {{ progress.0|add:1 }} {% trans "of" %} {{ progress.1 }}
+</div>
+{% endif %}
+
+<p>
+  <small class="muted">{% trans "Question category" %}:</small>
+  <strong>{{ question.category }}</strong>
+</p>
+
+<p class="lead">{{ question.content }}</p>
+
+{% if question.figure %}
+    <img src="{{ question.figure.url }}" alt="{{ question.content }}" />
+{% endif %}
+
+<form action="" method="POST">{% csrf_token %}
+  <input type=hidden name="question_id" value="{{ question.id }}">
+
+  <ul class="list-group">
+
+	{% for answer in form.answers %}
+	  <li class="list-group-item">
+	    {{ answer }}
+	  </li>
+	{% endfor %}
+
+  </ul>
+  <input type="submit" value={% trans "Check" %} class="btn btn-large btn-block btn-warning" >
+</form>
+
+{% endif %}
+
+<hr>
+	</div>
+				</div>
+			</div>
+		</div>
+		</div>
+</section>
+
+{% endblock %}

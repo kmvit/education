@@ -6,19 +6,19 @@ class QuestionInline(admin.StackedInline):
     extra = 1
 
 class QuizAdmin(admin.ModelAdmin):
-    fieldsets = [
-        (None,               {'fields': ['title']}),
-        ('Quiz information', {'fields': ['category', 'description',], 'classes': ['collapse']}),
-    ]
     inlines = [QuestionInline]
     list_display = ('title', 'created', )
-    list_per_page = 10  # default 100
     search_fields = ('title', )
     
-    def save_model(self, request, obj, form, change):
-        obj.author = request.user.username
-        obj.save()
+class AnswerInline(admin.StackedInline):
+    model = Answer
+    extra = 1
+
+    
+class QuestionAdmin(admin.ModelAdmin):
+    inlines = [AnswerInline]
+
 
 admin.site.register(Quiz, QuizAdmin)
-admin.site.register(Question)
-admin.site.register(Score)
+admin.site.register(Question, QuestionAdmin)
+admin.site.register(Answer)

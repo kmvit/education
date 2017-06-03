@@ -2,12 +2,12 @@
 {% load static %}
 <html lang="ru">
 <head>
-	<meta charset="utf-8">
+	<meta name="http-equiv" content="Content-type: text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet">
 	<script src="https://use.fontawesome.com/b3fa3b0ee6.js"></script>
-	<link rel="stylesheet" href="{% static "/styles/main.css" %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
 	<title>Education</title>
 </head>
 <body>
@@ -31,13 +31,13 @@
 	<nav class="navigation">
 		<div class="container">
 			<div class="row justify-content-around">
-				<a href="{% url 'material:materiallist' %}" class="navigation__a-db">
+				<a href="{% url 'material:material_list' %}" class="navigation__a-db">
 					<div class="navigation__button-wrapper">
 						<div class="navigation__button navigation__button-first"></div>
 						<h2 class="navigation__h2">Материалы и обучение</h2>
 					</div>
 				</a>
-				<a href="{% url 'onlinetest:onlinetestlist' %}" class="navigation__a-db">
+				<a href="{% url 'quiz:quiz_index' %}" class="navigation__a-db">
 					<div class="navigation__button-wrapper">
 						<div class="navigation__button navigation__button-second"></div>
 						<h2 class="navigation__h2">Тесты онлайн</h2>
@@ -117,8 +117,8 @@
 						<div class="line news__line"></div>
 						{% for item in material_list %}
 						<aside class="offers">
-							<p class="text-center"><a href="{% url 'material:materialdetail' item.id %}"><img src="{{item.img.url}}" alt=""></a></p>
-							<p class="text-center offers__p"><a href="{% url 'material:materialdetail' item.id %}" class="offers__p-a">{{item.title}}</a></p>
+							<p class="text-center"><a href="{% url 'material:material_detail' item.id %}"><img src="{{item.img.url}}" alt=""></a></p>
+							<p class="text-center offers__p"><a href="{% url 'material:material_detail' item.id %}" class="offers__p-a">{{item.title}}</a></p>
 						</aside>
 						{% endfor %}
 					</div><!-- /banner -->

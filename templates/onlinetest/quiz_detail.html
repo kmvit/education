@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% block podbor %}
+{% endblock %}
+{% block content %}
+<section class="news posr">
+		<div class="container">
+			<h1 class="news__h1">Тесты онлайн</h1>
+			<div class="line news__line"></div>
+			<div class="row">
+				<div class="col-md-4 border">
+					<h2 class="text-center random_mats__h2">Случайные материалы</h2>
+					{%for item in material_list%}
+					<aside class="random_mats">
+						<h4 class="text-center"><a href="{%url 'material:material_detail' pk=item.pk%}" class="">{{item.title}}</a></h4>
+						<p class="text-center"><a href="{%url 'material:material_detail' pk=item.pk%}"><img src="{{item.img.url}}" alt="" class="random_mats__img"></a></p>
+					</aside>
+					{%endfor%}
+				</div>
+				<div class="col-md-8">
+					<div class="test_main">
+						<h1 class="test_main__h1">{{quiz}}</h1>
+					
+					    <div id="content">
+        <h3 id="question"></h3>
+        <div id="choices"></div>
+        <p><button id="submit"></button></p>
+        <p id="score"></p>
+      </div>
+					
+			
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+  <script>
+var quiz = [
+    {%for item in question_list%}
+    {
+  "question": "{{item.title}}",
+  "choices": [{%for answer in item.answer_set.all%}"{{answer.title}}",{%endfor%}],
+  "correct": {%for answer in item.answer_set.all%}{%if answer.is_valid%}"{{answer.title}}"{%else%}{%endif%}{%endfor%}
+},
+{%endfor%}
+];
+
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"),
+  submitBtn = $("submit");
+
+// init vars
+var currentQuestion = 0,
+  score = 0,
+  askingQuestion = true;
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[currentQuestion].choices,
+    choicesHtml = "";
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+    choicesHtml += "<input type='radio' name='quiz" + currentQuestion +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label><br>";
+  }
+
+  // load the question
+  questionContainer.textContent = "Q" + (currentQuestion + 1) + ". " +
+    quiz[currentQuestion].question;
+
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (currentQuestion === 0) {
+    scoreContainer.textContent = "Очки: 0 правильных ответов из " +
+      quiz.length + " possible.";
+    submitBtn.textContent = "Ответить";
+  }
+}
+
+function checkAnswer() {
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+    submitBtn.textContent = "Следующий вопрос";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + currentQuestion);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[currentQuestion].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[currentQuestion].correct) {
+      score++;
+      labelStyle.color = "green";
+    } else {
+      labelStyle.color = "red";
+    }
+
+    scoreContainer.textContent = "Очки: " + score + " правильных ответов из " +
+      quiz.length + " возможных.";
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Принять ответ";
+    // if we're not on last question, increase question number
+    if (currentQuestion < quiz.length - 1) {
+      currentQuestion++;
+      askQuestion();
+    } else {
+      showFinalResults();
+    }
+  }
+}
+
+function showFinalResults() {
+  content.innerHTML = "<h2>Вы завершили тестирование!</h2>" +
+    "<h2>Ваш результат:</h2>" +
+    "<h2>" + score + " из " + quiz.length + " вопросов, " +
+    Math.round(score / quiz.length * 100) + "%<h2>";
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+</script>
+{% endblock %}

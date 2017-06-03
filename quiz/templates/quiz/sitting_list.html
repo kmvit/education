@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "All Quizzes" %}{% endblock %}
+
+{% block content %}
+<section class="news posr">
+		<div class="container">
+			<h1 class="news__h1">{% trans "List of quizzes" %}</h1>
+			<div class="line news__line"></div>
+			<div class="row">
+				<div class="col-md-4 border">
+					<h2 class="text-center random_mats__h2">Случайные материалы</h2>
+					{%for item in material_list%}
+					<aside class="random_mats">
+						<h4 class="text-center"><a href="{%url 'material:material_detail' pk=item.pk%}" class="">{{item.title}}</a></h4>
+						<p class="text-center"><a href="{%url 'material:material_detail' pk=item.pk%}"><img src="{{item.img.url}}" alt="" class="random_mats__img"></a></p>
+					</aside>
+					{%endfor%}
+				</div>
+				<div class="col-md-8">
+					<div class="test_main">
+<h2>{% trans "List of complete exams" %}</h2>
+    {% if sitting_list %}
+
+		<table class="table table-bordered table-striped">
+
+		  <thead>
+			<tr>
+			  <th>{% trans "User" %}</th>
+			  <th>{% trans "Quiz" %}</th>
+			  <th>{% trans "Completed" %}</th>
+			  <th>{% trans "Score" %}(%)</th>
+			  <th></th>
+			</tr>
+		  </thead>
+
+		  <tbody>
+			<tr>
+			  <form action="" method="GET">
+				<td><input type="text" name="user_filter" /></td>
+				<td><input type="text" name="quiz_filter" /></td>
+				<td></td>
+				<td></td>
+				<td><button type="submit" class="btn btn-default">{% trans "Filter"%}</button></td>
+			  </form>
+			</tr>
+
+
+        {% for sitting in sitting_list %}
+
+			<tr>
+			  <td>{{ sitting.user }}</td>
+			  <td>{{ sitting.quiz }}</td>
+			  <td>{{ sitting.end|date }}</td>
+			  <td>{{ sitting.get_percent_correct }}</td>
+			  <td>
+				<a href="{% url 'quiz_marking_detail' pk=sitting.id %}">
+				  {% trans "View details" %}
+				</a>
+			</tr>
+
+        {% endfor %}
+
+		  </tbody>
+
+		</table>
+    {% else %}
+        <p>{% trans "There are no matching quizzes" %}.</p>
+    {% endif %}
+    		</div>
+				</div>
+			</div>
+		</div>
+</section>
+{% endblock %}

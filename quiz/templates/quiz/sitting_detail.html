@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load quiz_tags %}
+{% block title %}
+{% trans "Result of" %} {{ sitting.quiz.title }} {% trans "for" %} {{ sitting.user }}
+{% endblock %}
+
+{% block content %}
+<section class="news posr">
+		<div class="container">
+			<h1 class="news__h1">{% trans "List of quizzes" %}</h1>
+			<div class="line news__line"></div>
+			<div class="row">
+				<div class="col-md-4 border">
+					<h2 class="text-center random_mats__h2">Случайные материалы</h2>
+					{%for item in material_list%}
+					<aside class="random_mats">
+						<h4 class="text-center"><a href="{%url 'material:material_detail' pk=item.pk%}" class="">{{item.title}}</a></h4>
+						<p class="text-center"><a href="{%url 'material:material_detail' pk=item.pk%}"><img src="{{item.img.url}}" alt="" class="random_mats__img"></a></p>
+					</aside>
+					{%endfor%}
+				</div>
+				<div class="col-md-8">
+					<div class="test_main">
+	<h2>{% trans "Quiz title" %}: {{ sitting.quiz.title }}</h2>
+<h3>{% trans "Category" %}: {{ sitting.quiz.category }}</h3>
+<p>{{ sitting.quiz.description }}</p>
+<hr>
+<p>{% trans "User" %}: {{ sitting.user }}</p>
+<p>{% trans "Completed" %}: {{ sitting.end|date }}</p>
+<p>{% trans "Score" %}: {{ sitting.get_percent_correct }}%</p>
+
+<table class="table table-bordered table-striped">
+
+  <thead>
+	<tr>
+	  <th>{% trans "Question" %}</th>
+	  <th>{% trans "User answer" %}</th>
+	  <th></th>
+	  <th></th>
+	</tr>
+  </thead>
+
+  <tbody>
+{% for question in questions %}
+
+	<tr>
+      <td>
+        {{ question.content }}
+        {% if question.figure %}
+        <div style="max-width: 100px;"><img src="{{ question.figure.url }}" alt="{{ question.figure }}"/></div>
+        {% endif %}
+      </td>
+	  <td>{{ question|answer_choice_to_string:question.user_answer }}</td>
+	  <td>
+		{% if question.id in sitting.get_incorrect_questions %}
+		  <p>{% trans "incorrect" %}</p>
+		{% else %}
+		  <p>{% trans "Correct" %}</p>
+		{% endif %}
+	  </td>
+	  <td>
+		<form action="" method="POST">{% csrf_token %}
+		  <input type=hidden name="qid" value="{{ question.id }}">
+		  <button type="submit" class="btn btn-warning">{% trans "Toggle whether correct" %}</button>
+		</form>
+	  </td>
+	</tr>
+
+{% endfor %}
+
+  </tbody>
+
+</table>
+			
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+
+{% endblock %}
+

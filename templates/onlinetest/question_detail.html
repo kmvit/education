@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block podbor %}
+{% endblock %}
+{% block content %}
+<section class="news posr">
+		<div class="container">
+			<h1 class="news__h1">{{question}}</h1>
+			<div class="line news__line"></div>
+			<div class="row">
+				<div class="col-md-4 border">
+					<h2 class="text-center random_mats__h2">Случайные материалы</h2>
+					{%for item in material_list%}
+					<aside class="random_mats">
+						<h4 class="text-center"><a href="{%url 'material:material_detail' pk=item.pk%}" class="">{{item.title}}</a></h4>
+						<p class="text-center"><a href="{%url 'material:material_detail' pk=item.pk%}"><img src="{{item.img.url}}" alt="" class="random_mats__img"></a></p>
+					</aside>
+					{%endfor%}
+				</div>
+				<div class="col-md-8">
+					<div class="test_main">
+						<h1 class="test_main__h1">{{question}}</h1>
+						{%for item in quiz.question_set.all%}
+						<a href="{%url 'onlinetest:question_detail' pk=quiz.id question_pk=item.id%}">{{item.id}}</a> |
+						{%endfor%}
+						{%for item in quiz.question_set.all%}
+						<form action="">
+							<ol class="test_main__list">
+								<li>{{item.title}}
+								{%for i in item.answer_set.all%}
+									<div class="form-check">
+									  <label class="form-check-label">
+									    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="">
+									    {{i.title}}
+									  </label>
+									</div>
+								{%endfor%}
+								</li>
+							</ol>
+							
+						</form>
+						{%endfor%}
+						<button type="submit" class="btn btn-black">Отправить</button>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+{% endblock %}

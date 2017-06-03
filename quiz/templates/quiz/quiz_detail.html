@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block podbor %}
+{% endblock %}
+{% block title %}{% trans "All Quizzes" %}{% endblock %}
+
+{% block content %}
+<section class="news posr">
+		<div class="container">
+			<h1 class="news__h1">{{quiz.title}}</h1>
+			<div class="line news__line"></div>
+			<div class="row">
+				<div class="col-md-4 border">
+					<h2 class="text-center random_mats__h2">Случайные материалы</h2>
+					{%for item in material_list%}
+					<aside class="random_mats">
+						<h4 class="text-center"><a href="{%url 'material:material_detail' pk=item.pk%}" class="">{{item.title}}</a></h4>
+						<p class="text-center"><a href="{%url 'material:material_detail' pk=item.pk%}"><img src="{{item.img.url}}" alt="" class="random_mats__img"></a></p>
+					</aside>
+					{%endfor%}
+				</div>
+				<div class="col-md-8">
+					<div class="test_main">
+<h3>{% trans "Category" %}: {{ quiz.category }}</h3>
+{% if quiz.single_attempt %}
+  <h4>{% trans "You will only get one attempt at this quiz" %}.</h4>
+{% endif %}
+<p>{{ quiz.description }}</p>
+<p>
+  <a href="{% url 'quiz:quiz_question' quiz_name=quiz.url %}">
+	{% trans "Start quiz" %}
+  </a>
+</p>	
+			
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+{% endblock %}

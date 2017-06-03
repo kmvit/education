@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block podbor %}
+{% endblock %}
+{% block content %}
+<section class="news posr">
+		<div class="container">
+			<h1 class="news__h1">материалы и обучение</h1>
+			<div class="line news__line"></div>
+			<div class="row">
+			{% for item in material_list %}
+				<div class="col-md-4 col-sm-6 col-12">
+					<a href="{% url 'material:material_detail' item.id %}" class="mats__a">
+						<div class="mats">
+							<h3>{{item.title}}</h3>
+							<div class="mats__img">
+								<img src="{{item.img.url}}" alt="{{item.title}}">
+								{% if item.on_off %}
+								<i class="fa fa-lock" aria-hidden="true"></i>
+								{% endif %}
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endblock %}

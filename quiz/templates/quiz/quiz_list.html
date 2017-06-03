@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block podbor %}
+{% endblock %}
+{% block title %}{% trans "All Quizzes" %}{% endblock %}
+
+{% block content %}
+<section class="news posr">
+    <div class="container">
+			<h1 class="news__h1">Тесты онлайн</h1>
+			<div class="line news__line"></div>
+			<div class="row">
+			    {% if quiz_list %}
+			    {% for quiz in quiz_list %}
+				<div class="col-md-4">
+					<div class="test-block">
+						<h3 class="test-block__header">{{ quiz.title }}</h3>
+						<span class="test-block__start"><a href="{% url 'quiz:quiz_start_page' slug=quiz.url %}"> {% trans "View details" %}</a></span>
+					</div>
+				</div>
+				{% endfor %}
+				{% else %}
+                    <p>{% trans "There are no available quizzes" %}.</p>
+                {% endif %}
+			</div>
+		</div>
+</section>
+{% endblock %}
+
+
+
