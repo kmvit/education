@@ -1,6 +1,7 @@
 from django.conf.urls import url, include
 from django.contrib import admin
 from materials.views import *
+from person.views import *
 from .settings import STATIC_ROOT
 from django.conf.urls.static import static
 from django.conf import settings
@@ -10,5 +11,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^material/', include('materials.urls', namespace='materiallist', app_name='material')),
     url(r'^test/',  include('quiz.urls', namespace='quiz', app_name='quiz')),
+    url(r'^search/',  SearchTeacher.as_view(), name='search'),
+    url(r'^searchresults/',  SearchResult.as_view(), name='search_results'),
     url(r'^$', Home.as_view(), name='home')
 ]

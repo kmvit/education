@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block podbor %}
+{% endblock %}
+{% block content %}
+	<div class="search">
+		<div class="container">
+			<div class="search__img">
+				<img src='{% static "/images/rep.png" %}' alt="" class="w-100">
+			</div>
+			<div class="search__content">
+				<form action="/searchresults" class="search__form">
+					<div class="form-group row">
+				    <label for="selectType" class="col-2 col-form-label">Предмет</label>
+				    <div class="col-5">
+				    	<select class="form-control" id="selectType" name="selectType">
+				    	  {% for item in teach_list %}
+				    	  <option>{{item.title}}</option>
+				    	  {% endfor %}
+				    	</select>
+				    </div>
+				  </div>
+				 <div class="form-group row">
+				  	<label for="selectPrice" class="col-3 col-form-label">Стоимость занятия (в рублях)</label>
+				    <div class="col-5 pt-12">
+				    	<div id="slider-range"></div>
+				    </div>
+				    <div class="col-4 pt-5c">
+				    	<input type="text" id="selectPrice" name="selectPrice" style="width: 80px;">
+				    	<span style="margin: 0 10px;">&mdash;</span>
+				    	<input type="text" id="selectPrice2" name="selectPrice2" style="width: 80px;">
+				    </div>
+				  </div>
+				  <fieldset class="form-group">
+				    <label>Место проведения занятия</label>
+				    <div class="row">
+				        {% for item in metro_list %}
+				    	<div class="form-check offset-1 col-4">
+				    	  <label class="form-check-label">
+				    	    <input type="checkbox" class="form-check-input" name="optionsRadios[]" id="optionsRadios{{forloop.counter}}" value="{{item.id}}">
+				    	    м.{{item.title}}
+				    	  </label>
+				    	</div>
+				    	{% endfor %}
+				    </div>
+				  </fieldset>
+				  <div class="form-check">
+				    <label class="form-check-label">
+				      <input type="checkbox" class="form-check-input" id="gotostudent" name="gotostudent" value="1">
+				      Выезд к ученику
+				    </label>
+				  </div>
+				  <button type="submit" class="btn catch__btn" style="margin: 0 auto; display: block; width: 200px;">Подобрать репетитора</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="newstuff">
+		<div class="container">
+			<div class="ns">
+				<h2>новинки</h2>
+				<div class="line news__line"></div>
+				<div class="ns__content d-flex justify-content-between">
+					<aside class="nso">
+						<p class="text-center"><a href=""><img src="{% static "images/banners/dict1.png" %}" alt=""></a></p>
+						<p class="text-center nso"><a href="" class="nso-a">Вводный курс английского для тех, кто хочет начать изучение с начального уровня</a></p>
+					</aside>
+					<aside class="nso">
+						<p class="text-center"><a href=""><img src="{% static "images/banners/dict1.png" %}" alt=""></a></p>
+						<p class="text-center nso"><a href="" class="nso-a">Вводный курс английского для тех, кто хочет начать изучение с начального уровня</a></p>
+					</aside>
+					<aside class="nso">
+						<p class="text-center"><a href=""><img src="{% static "images/banners/dict1.png" %}" alt=""></a></p>
+						<p class="text-center nso"><a href="" class="nso-a">Вводный курс английского для тех, кто хочет начать изучение с начального уровня</a></p>
+					</aside>
+					<aside class="nso">
+						<p class="text-center"><a href=""><img src="{% static "images/banners/dict1.png" %}" alt=""></a></p>
+						<p class="text-center nso"><a href="" class="nso-a">Вводный курс английского для тех, кто хочет начать изучение с начального уровня</a></p>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -16,20 +16,21 @@
 				<div class="col-md-8">
 				        {{material.body}}
 						<div class="article-buttons">
-						<label for="popupCheckboxOne" class="popup-shower btn btn-secondary custom-sec">Посмотреть</label>
+						<a class="btn btn-secondary custom-sec" href="#win1">Посмотреть</a>
+    					{% if material.on_off or material.exclusive %}
+						<a class="btn btn-secondary custom-sec" href="#">Купить</a>
+						{% else %}
 						<a class="btn btn-secondary custom-sec" href="{{material.file.url}}" download>Скачать</a>
+						{% endif %}
 					</div>
 				</div>
-			<div class="popup-wrapper">
-  <input type="checkbox" class="popup-checkbox" id="popupCheckboxOne">
-  <div class="popup">
-    <div class="popup-content">
-      <label for="popupCheckboxOne" class="popup-closer">&#215;</label>
-       {{material.body}}
-    </div>
-  </div>
-</div>
-
+		
+                <!-- Модальное окно №1 -->
+                <a href="#x" class="overlay" id="win1"></a>
+                <div class="popup">
+                    {{material.body}}
+                    <a class="close"title="Закрыть" href="#close"></a>
+                </div>
 			</div>
 		</div>
 	</section>

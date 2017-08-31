@@ -8,6 +8,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet">
 	<script src="https://use.fontawesome.com/b3fa3b0ee6.js"></script>
 	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+	<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
 	<title>Education</title>
 </head>
 <body>
@@ -43,7 +45,7 @@
 						<h2 class="navigation__h2">Тесты онлайн</h2>
 					</div>
 				</a>
-				<a href="" class="navigation__a-db">
+				<a href="{% url 'search' %}" class="navigation__a-db">
 					<div class="navigation__button-wrapper">
 						<div class="navigation__button navigation__button-third"></div>
 						<h2 class="navigation__h2">Поиск учителя</h2>
@@ -64,18 +66,19 @@
 						<h2 class="catch__h2">Бесплатно  подберем анкеты подходящих Вам репетиторов</h2>
 						<div class="line catch__line"></div>
 					</div>
-					<form action="" class="catch__form-catch">
+					<form action="/searchresults" class="catch__form-catch">
 						<div class="form-group posr catch__select-wrapper">
-							<select class="custom-select catch__custom-select" id="sel">
+							<select class="custom-select catch__custom-select" id="selectType" name="selectType">
 								<option selected="selected" disabled="disabled">Предмет</option>
-								<option>Русский язык</option>
-								<option>Математика</option>
-								<option>Биология</option>
+								{% for item in teach_list %}
+								<option>{{item.title}}</option>
+								{% endfor %}
+
 							</select>
 							<!-- <i class="fa fa-angle-down catch__fa" aria-hidden="true" id="iSel"></i> -->
 						</div>
 						<div class="form-group">
-							<input type="text" placeholder="Стоимость" class="form-control catch__input">
+							<input type="text" placeholder="Стоимость" id="selectprice" name="selectprice" class="form-control catch__input">
 						</div>
 						<div class="form-group">
 							<input type="submit" class="btn catch__btn" value="Подобрать репетитора">
@@ -137,9 +140,10 @@
 			<!-- footer -->
 		</div>
 	</footer>
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-	<script src="{% static "/js/scripts.js" %}"></script>
+	<script src="{% static "js/jquery-ui.min.js" %}"></script>
+	<script src="{% static "js/scripts.js" %}"></script>
 </body>
 </html>

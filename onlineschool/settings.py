@@ -38,9 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-
-
     'materials',
     'person',
     'quiz',
@@ -67,7 +64,7 @@ ROOT_URLCONF = 'onlineschool.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/justscoundrel/django/education/templates',],
+        'DIRS': ['/srv/django/education/templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

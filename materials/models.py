@@ -11,6 +11,7 @@ class Material(models.Model):
     body = models.TextField(verbose_name='Содержание')
     file = models.FileField(upload_to='material/files', verbose_name='Файлы')
     on_off = models.BooleanField(default=False, verbose_name='Платный')
+    exclusive = models.BooleanField(default=False, verbose_name='Эксклюзивный')
     class Meta:
         verbose_name = 'Материалы'
     def __unicode__(self):

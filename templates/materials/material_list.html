@@ -14,7 +14,7 @@
 							<h3>{{item.title}}</h3>
 							<div class="mats__img">
 								<img src="{{item.img.url}}" alt="{{item.title}}">
-								{% if item.on_off %}
+								{% if item.on_off or item.exclusive%}
 								<i class="fa fa-lock" aria-hidden="true"></i>
 								{% endif %}
 							</div>

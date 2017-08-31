@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block podbor %}
+{% endblock %}
+{% block content %}
+	<div class="search">
+		<div class="container">
+			<div class="search__img">
+				<img src="{% static "/images/rep.png" %}" alt="" class="w-100">
+			</div>
+			<div class="search__content">
+				<a href="/search"class="btn catch__btn" style="margin: 0 auto; display: block; width: 300px;">Изменить параметры поиска</a>
+				{% for item in person_list %}
+				<div class="onerep">
+					<div class="row">
+					    
+						<div class="col-sm-3">
+							<img src="{{item.avatar.url}}" alt="">
+						</div>
+						<div class="col-sm-9">
+							<p>Предмет: <span class="text-success">{{item.teach}}</span></p>
+							<p>Методика: <span class="text-success">{{item.programm}}</span></p>
+							<p>Станция метро: <span class="text-success">{{item.metro}}</span></p>
+							<p>Выезд: <span class="text-success">{% if item.goto_student %}Да{% else %}Нет{% endif %}</span></p>
+							<a href="" class="btn btn-black">Взять пробный урок</a>
+						</div>
+					
+					</div>
+				</div>
+			    {% endfor %}
+				<a href="/search"class="btn catch__btn" style="margin: 0 auto; display: block; width: 300px;">Изменить параметры поиска</a>
+			</div>
+		</div>
+	</div>
+	<div class="newstuff">
+		<div class="container">
+			<div class="ns">
+				<h2>новинки</h2>
+				<div class="line news__line"></div>
+				<div class="ns__content d-flex justify-content-between">
+					<aside class="nso">
+						<p class="text-center"><a href=""><img src="{% static "images/banners/dict1.png" %}" alt=""></a></p>
+						<p class="text-center nso"><a href="" class="nso-a">Вводный курс английского для тех, кто хочет начать изучение с начального уровня</a></p>
+					</aside>
+					<aside class="nso">
+						<p class="text-center"><a href=""><img src="{% static "images/banners/dict1.png" %}" alt=""></a></p>
+						<p class="text-center nso"><a href="" class="nso-a">Вводный курс английского для тех, кто хочет начать изучение с начального уровня</a></p>
+					</aside>
+					<aside class="nso">
+						<p class="text-center"><a href=""><img src="{% static "images/banners/dict1.png" %}" alt=""></a></p>
+						<p class="text-center nso"><a href="" class="nso-a">Вводный курс английского для тех, кто хочет начать изучение с начального уровня</a></p>
+					</aside>
+					<aside class="nso">
+						<p class="text-center"><a href=""><img src="{% static "images/banners/dict1.png" %}" alt=""></a></p>
+						<p class="text-center nso"><a href="" class="nso-a">Вводный курс английского для тех, кто хочет начать изучение с начального уровня</a></p>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

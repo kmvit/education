@@ -8,6 +8,7 @@
 {% block description %} {{ quiz.title }} - {{ quiz.description }} {% endblock %}
 
 {% block content %}
+<script>document.location="#main-test"</script>
 <section class="news posr">
 		<div class="container">
 			<h1 class="news__h1">{{ quiz.title }}</h1>
@@ -23,7 +24,7 @@
 					{%endfor%}
 				</div>
 				<div class="col-md-8">
-					<div class="test_main">
+					<div class="test_main" id="main-test">
 {% if previous.answers %}
 
   <p class="muted"><small>{% trans "The previous question" %}:</small></p>
